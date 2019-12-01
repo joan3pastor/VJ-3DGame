@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class cameraScript : MonoBehaviour
 {
-    public Vector3 offset = new Vector3(0, 1, -5);
+    public Vector3 offset = new Vector3(0, 0, -5);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class cameraScript : MonoBehaviour
     void Update()
     {
         Vector3 playerPos = GameObject.Find("Player").transform.position;
+        playerPos.y = 3.8921f;
         transform.position = playerPos + offset;
-
     }
 }
