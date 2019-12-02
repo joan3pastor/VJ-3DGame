@@ -8,6 +8,7 @@ public class playerMovement : MonoBehaviour
     public float forwardForce = 1000;
     public float jumpForce = 30;
     public float sideForce = 500;
+    public float sideVelocity = 3.5f;
     public float maxVelocity = 6;
     public bool dead = false;
 
@@ -38,7 +39,7 @@ public class playerMovement : MonoBehaviour
         {
             //rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
             lastMovementTime = Time.time;
-            vel.x = -3;
+            vel.x = -sideVelocity;
             rb.velocity = vel;
             //Debug.Log(rb.velocity);
         }
@@ -46,7 +47,7 @@ public class playerMovement : MonoBehaviour
         {
             //rb.AddForce(sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
             lastMovementTime = Time.time;
-            vel.x = 3;
+            vel.x = sideVelocity;
             rb.velocity = vel;
         }
 
