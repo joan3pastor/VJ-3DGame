@@ -17,6 +17,7 @@ public class cameraScript : MonoBehaviour
     {
         Vector3 playerPos = GameObject.Find("Player").transform.position;
         playerPos.y = 3.8921f;
+        playerPos.x = -5.5f;
         transform.position = playerPos + offset;
     }
 }

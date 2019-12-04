@@ -5,11 +5,13 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour
 {
 
-    public float forwardForce = 1000;
+    public static playerMovement instance;
+
+    public float forwardForce = 2600;
     public float jumpForce = 30;
     public float sideForce = 500;
     public float sideVelocity = 3.5f;
-    public float maxVelocity = 6;
+    public float maxVelocity = 7;
     public bool dead = false;
 
     Rigidbody rb;
@@ -21,36 +23,37 @@ public class playerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         rb = gameObject.GetComponent<Rigidbody>();
-
     }
 
 
     void Update() {
-
-        Vector3 vel = rb.velocity;
-        if (vel.z > maxVelocity)
+        if (!dead)
         {
-            vel.z = maxVelocity;
-            rb.velocity = vel;
-        }
+            Vector3 vel = rb.velocity;
+            if (vel.z > maxVelocity)
+            {
+                vel.z = maxVelocity;
+                rb.velocity = vel;
+            }
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey("left"))
-        {
-            //rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-            lastMovementTime = Time.time;
-            vel.x = -sideVelocity;
-            rb.velocity = vel;
-            //Debug.Log(rb.velocity);
+            if (Input.GetKey(KeyCode.A) || Input.GetKey("left"))
+            {
+                //rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+                lastMovementTime = Time.time;
+                vel.x = -sideVelocity;
+                rb.velocity = vel;
+                //Debug.Log(rb.velocity);
+            }
+            else if (Input.GetKey(KeyCode.D) || Input.GetKey("right"))
+            {
+                //rb.AddForce(sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+                lastMovementTime = Time.time;
+                vel.x = sideVelocity;
+                rb.velocity = vel;
+            }
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey("right"))
-        {
-            //rb.AddForce(sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-            lastMovementTime = Time.time;
-            vel.x = sideVelocity;
-            rb.velocity = vel;
-        }
-
     }
 
     // Update is called once per frame

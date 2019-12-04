@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class spiderAnimation : MonoBehaviour
 {
 
-    public float delayMaximo = 0.0f;
+    public float delayMaximo = 5.0f;
 
     private Animation spiderAnim;
     private bool started = false;
@@ -17,15 +15,17 @@ public class spiderAnimation : MonoBehaviour
     {
         timeStart = Time.time;
         timeDelay = Random.Range(0.0f, delayMaximo);
+        spiderAnim = GetComponentInChildren<Animation>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!started) {
-            if (Time.time > timeStart+timeDelay) {
-                spiderAnim = GetComponentInChildren<Animation>();
+            if (Time.time > timeStart+timeDelay)
+            {
                 spiderAnim["SpiderUpDown"].wrapMode = WrapMode.Loop;
+                spiderAnim.wrapMode = WrapMode.Loop;
                 spiderAnim.Play("SpiderUpDown");
                 started = true;
             }
@@ -33,3 +33,4 @@ public class spiderAnimation : MonoBehaviour
         
     }
 }
+
