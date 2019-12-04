@@ -51,8 +51,6 @@ public class playerMovement : MonoBehaviour
         }
 
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (!dead) { 
@@ -64,26 +62,8 @@ public class playerMovement : MonoBehaviour
                 if (Input.GetKey(KeyCode.Space))
                 {
                     rb.AddForce(0, jumpForce * Time.deltaTime, 0);
-                    //jumping = true;
                     lastMovementTime = Time.time;
                 }
-                //else if (Input.GetKey(KeyCode.A) || Input.GetKey("left"))
-                //{
-                //    //rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-                //    lastMovementTime = Time.time;
-                //    Vector3 vel = rb.velocity;
-                //    vel.x = -3;
-                //    rb.velocity = vel;
-                //    //Debug.Log(rb.velocity);
-                //}
-                //else if (Input.GetKey(KeyCode.D) || Input.GetKey("right"))
-                //{
-                //    //rb.AddForce(sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-                //    lastMovementTime = Time.time;
-                //    Vector3 vel = rb.velocity;
-                //    vel.x = 3;
-                //    rb.velocity = vel;
-                //}
             }
 
         }
