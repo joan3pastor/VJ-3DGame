@@ -8,8 +8,6 @@ public class playerMovement : MonoBehaviour
     public static playerMovement instance;
 
     public float forwardForce = 2600;
-    public float jumpForce = 30;
-    public float sideForce = 500;
     public float sideVelocity = 3.5f;
     public float maxVelocity = 7;
     public bool dead = false;
@@ -60,15 +58,6 @@ public class playerMovement : MonoBehaviour
         if (!dead) { 
         
             rb.AddForce(0, 0, forwardForce * Time.deltaTime);
-            
-            if (!jumping && Time.time - lastMovementTime >= timeBetweenMovements)
-            {
-                if (Input.GetKey(KeyCode.Space))
-                {
-                    rb.AddForce(0, jumpForce * Time.deltaTime, 0);
-                    lastMovementTime = Time.time;
-                }
-            }
 
         }
         
