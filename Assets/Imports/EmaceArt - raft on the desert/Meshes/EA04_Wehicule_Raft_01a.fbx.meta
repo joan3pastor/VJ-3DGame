@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 61895aefa3684d3448b565d3bfb3da38
+guid: 3588b9182258a0a4483a05e4aa3cd642
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -11,11 +11,9 @@ ModelImporter:
     400002: EA04_Wehicule_Raft_01a_LOD0
     400004: EA04_Wehicule_Raft_01a_LOD1
     400006: EA04_Wehicule_Raft_01a_LOD2
-    2100000: Material_wood
+    2100000: Material_standard
     2100002: Material_syntetic
-    2100004: Material_syntetic_alpha
-    2100006: Material_standard
-    2100008: Material_syntetic_decal
+    2100004: Material_syntetic_decal
     2300000: EA04_Wehicule_Raft_01a_LOD0
     2300002: EA04_Wehicule_Raft_01a_LOD1
     2300004: EA04_Wehicule_Raft_01a_LOD2
@@ -64,12 +62,13 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -88,6 +87,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

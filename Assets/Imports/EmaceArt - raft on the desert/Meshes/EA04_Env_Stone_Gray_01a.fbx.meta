@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d4e3ac37ff535dc408cf11d6cc29e94d
+guid: 7695fc31b7269f942ba61eed8d607731
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -11,8 +11,7 @@ ModelImporter:
     400002: EA04_Env_Stone_Gray_01a_LOD0
     400004: EA04_Env_Stone_Gray_01a_LOD1
     400006: EA04_Env_Stone_Gray_01a_LOD2
-    2100000: Material_organic
-    2100002: Material_standard
+    2100000: Material_standard
     2300000: EA04_Env_Stone_Gray_01a_LOD0
     2300002: EA04_Env_Stone_Gray_01a_LOD1
     2300004: EA04_Env_Stone_Gray_01a_LOD2
@@ -60,12 +59,13 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -84,6 +84,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
