@@ -8,14 +8,14 @@ public class playerMovement2 : MonoBehaviour
     public static playerMovement2 instance;
 
     private float forwardForce = 2600;
-    private float sideForce = 400;
+    private float sideForce = 800;
 
     public float sideVelocity = 3.5f;
-    public float maxVelocity = 7;
+    public float maxVelocity = 5;
     public bool dead = false;
 
     private float zOfSnowyArea = 216;
-    private float zWin = 427;
+    private float zWin = 430;
     Rigidbody rb;
 
 
@@ -56,7 +56,6 @@ public class playerMovement2 : MonoBehaviour
     void FixedUpdate()
     {
         bool inSnowyArea = transform.position.z >= zOfSnowyArea;
-        if (transform.position.z >= zWin) forwardForce = forwardForce * 2;
         if (!dead)
         {
             if (inSnowyArea) {
