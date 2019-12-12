@@ -13,10 +13,6 @@ public class playerMovement : MonoBehaviour
     public bool dead = false;
 
     Rigidbody rb;
-    bool jumping = false;
-    float timeBetweenMovements = 0.5f;
-    float lastMovementTime = 0;
-
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +35,6 @@ public class playerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.A) || Input.GetKey("left"))
             {
                 //rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-                lastMovementTime = Time.time;
                 vel.x = -sideVelocity;
                 rb.velocity = vel;
                 //Debug.Log(rb.velocity);
@@ -47,7 +42,6 @@ public class playerMovement : MonoBehaviour
             else if (Input.GetKey(KeyCode.D) || Input.GetKey("right"))
             {
                 //rb.AddForce(sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-                lastMovementTime = Time.time;
                 vel.x = sideVelocity;
                 rb.velocity = vel;
             }
