@@ -42,25 +42,39 @@ public class AudioManager : MonoBehaviour
 			return;
 		}
 
-		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+        s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
 		s.source.Play();
 	}
 
-    public void StopSound(string name)
-    { 
-        
+    public void StopSound(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+        s.source.Stop();
     }
 
-    public void AjustIntensitySound(string name, float intensity)
+    public void StopAllSounds()
     {
+        foreach (Sound s in sounds)
+        {
+            s.source.Stop();
+        }
+    }
 
+    public void AjustIntensitySound(string sound, float volume)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+        s.source.volume = volume;
     }
 }
-
-
-// Para hacer un fade out:
-//  - Ir llamando a AjustIntensitySound("musicalvl1", ...) desde update y ir reduciendo volumen
-//  - Llamar a StopSound("musicalvl1")
-//  - Resetear el valor de la intensitad: AjustIntensitySound("musicalvl1", ...)

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - FxTemporaire
+  - Tank
+  - Castle
+  - Slow
   layers:
   - Default
   - TransparentFX

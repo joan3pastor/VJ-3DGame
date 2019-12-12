@@ -9,6 +9,10 @@ public class playerCollision : MonoBehaviour
     private Transform t;
     private bool dead = false;
     private float deathTimer;
+    private bool slowed = false;
+
+    private float originalPlayerSideMov;
+    private float originalPlayerMaxVel;
 
 
     // Start is called before the first frame update
@@ -34,7 +38,6 @@ public class playerCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision c)
     {
-        //Debug.Log(c.collider.name);
         if (!dead && !invencible)
         {
             if (c.collider.tag == "Enemy")
@@ -44,6 +47,24 @@ public class playerCollision : MonoBehaviour
                 Instantiate(collisionAnimPrefab, collisionPoint, Quaternion.identity);
                 FindObjectOfType<AudioManager>().Play("collision");
             }
+        }
+
+        if (!slowed)
+        {
+            if (c.collider.tag == "Slow")
+            {
+                originalPlayerSideMov = playerMovement.instance.sideVelocity;
+                originalPlayerMaxVel = playerMovement.instance.maxVelocity;
+                playerMovement.instance.sideVelocity = 2.0f;
+                playerMovement.instance.maxVelocity = 4.0f;
+                slowed = true;
+            }
+        }
+        else if (c.collider.tag != "Slow")
+        {
+            playerMovement.instance.sideVelocity = originalPlayerSideMov;
+            playerMovement.instance.maxVelocity = originalPlayerMaxVel;
+            slowed = false;
         }
     }
 
