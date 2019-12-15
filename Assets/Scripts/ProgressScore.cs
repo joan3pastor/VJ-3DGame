@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ProgressScore : MonoBehaviour
 {
@@ -22,9 +23,11 @@ public class ProgressScore : MonoBehaviour
 
     void Update()
     {
-        if (playerMovement.instance.dead != true) { 
+        if (playerMovement.instance.dead == false)
+        {
             progress = (player.transform.position.z / (end - start)) * 100;
             if (progress <= 100.0f) text.text = progress.ToString("0") + "%";
         }
+        
     }
 }

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1 Halloween.unity
     guid: 631011bea3f466e49ab4a4db955fd287
   - enabled: 1
+    path: Assets/Scenes/Level2 Christmas.unity
+    guid: e03bd73b8274f674daf1161302d29607
+  - enabled: 1
     path: Assets/Scenes/Level3 Desert.unity
     guid: 975d72d57dccc094ba32337a32fb95e6
   m_configObjects: {}

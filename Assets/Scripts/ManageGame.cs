@@ -19,10 +19,12 @@ public class ManageGame : MonoBehaviour
 
     void Update()
     {
+
         if (playerMovement.instance.dead == true)
         {
             gameOver.SetActive(true);
         }
+        
         if (ProgressScore.instance.progress >= 100.0f)
         {
             levelCompleted.SetActive(true);
