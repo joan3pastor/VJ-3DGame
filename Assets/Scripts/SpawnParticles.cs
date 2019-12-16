@@ -15,6 +15,7 @@ public class SpawnParticles : MonoBehaviour
     void Start()
     {
         objectZ = GetComponent<Transform>().position.z;
+        if (spawnPoint.z < 0) spawnPoint = gameObject.transform.position;
     }
 
     void Update()
