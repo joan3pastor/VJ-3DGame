@@ -9,6 +9,8 @@ public class playerMovement : MonoBehaviour
     public static playerMovement instance;
 
     private float sideForce = 800;
+    private float nextActionTime = 0.0f;
+    private float period = 0.2f;
     private bool finalSprint;
     private float zOfSnowyArea = 216;
     private float zWin = 435;
@@ -60,22 +62,24 @@ public class playerMovement : MonoBehaviour
         if (!dead) {
             if (SceneManager.GetActiveScene().buildIndex == 2)
             {
-                bool inSnowyArea = transform.position.z >= zOfSnowyArea;
-                if (!finalSprint && transform.position.z >= zWin)
+                if (!finalSprint && transform.position.z >= zWin) // End of platform
                 {
-                    rb.AddForce(0, 0, forwardForce * 2f);
+                    rb.AddForce(0, 0, forwardForce * 4f);
                     finalSprint = true;
                 }
-                if (!dead)
+
+                if (!finalSprint && transform.position.z >= zOfSnowyArea) // Snowy Area
                 {
-                    if (inSnowyArea)
+                    if (Time.time >= nextActionTime)
                     {
                         float rF = Random.Range(0.75f, 1.15f);
                         float rS = Random.Range(-1.0f, 1.0f);
-                        rb.AddForce(sideForce * Time.deltaTime * rS, 0, forwardForce * Time.deltaTime * rF);
-
+                        rb.AddForce(sideForce * 10 * Time.deltaTime * rS, 0, forwardForce * Time.deltaTime * rF);
+                        nextActionTime = Time.time + period;
                     }
                 }
+
+
             }
             
             if (!finalSprint) rb.AddForce(0, 0, forwardForce * Time.deltaTime);
