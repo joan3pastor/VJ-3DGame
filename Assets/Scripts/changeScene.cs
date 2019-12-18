@@ -12,4 +12,9 @@ public class changeScene : MonoBehaviour
         Application.LoadLevel(IndexScene);
     }
 
+    public void QuitGame() {
+        Debug.Log("Quitting game");
+        Application.Quit();
+    }
+
 }
