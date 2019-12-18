@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3 Desert.unity
     guid: 975d72d57dccc094ba32337a32fb95e6
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 5d3ea045e7b1844409a665d5db1ecd8a
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: 8d9ee9e1d15a80e40b5c28f245a76ab5
   m_configObjects: {}
